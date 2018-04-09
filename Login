@@ -15,11 +15,12 @@ public class Facebook {
     private WebDriver browser;
     private static final String FACEBOOK_LOGIN = "...."; // Необходимо вести свой логин
     private static final String FACEBOOK_PASS = "....."; // Необходимо ввести свой пароль
+    private static String locationWebDriver = "c:/chromedriver_win32/chromedriver.exe"; // Укажите правильный адрес к Webdriver
 
 
     @BeforeClass
     public void openBrowser(){
-        System.setProperty("webdriver.chrome.driver","c:/chromedriver_win32/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", locationWebDriver);
         browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
