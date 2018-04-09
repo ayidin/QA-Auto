@@ -1,0 +1,45 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+
+public class Facebook {
+
+    private WebDriver browser;
+    private static final String FACEBOOK_LOGIN = "...."; // Необходимо вести свой логин
+    private static final String FACEBOOK_PASS = "....."; // Необходимо ввести свой пароль
+
+
+    @BeforeClass
+    public void openBrowser(){
+        System.setProperty("webdriver.chrome.driver","c:/chromedriver_win32/chromedriver.exe");
+        browser = new ChromeDriver();
+        browser.manage().window().maximize();
+        browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+    }
+
+    @Test
+    public void testLogin() {
+        browser.get("https://uk-ua.facebook.com");
+        browser.findElement(By.cssSelector("#email")).sendKeys(FACEBOOK_LOGIN);
+        browser.findElement(By.cssSelector("#pass")).sendKeys(FACEBOOK_PASS, Keys.ENTER);
+        String name = browser.findElement(By.cssSelector("._1vp5")).getText();
+        System.out.println(name);
+    }
+
+    @AfterClass
+    public void closeBrowser(){
+        browser.quit();
+
+    }
+
+
+}
