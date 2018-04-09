@@ -1,0 +1,16 @@
+public class A {
+    public static void main(String[] args) {
+
+        B B = new B();
+        B.numberSort(); // вызов из класа В отсортированого списка массива четных чисел от 1 -100
+
+        try {
+            B.array(new int[2]); // Введена недопустимая  минимальная длина массива
+        } catch (ArrayIndexOutOfBoundsException e) {
+            B.array(new int[4]);
+            System.out.println("Была определене недопустимая длина массива, автоматически было переопредена длина массива.");
+        }
+
+
+    }
+}
