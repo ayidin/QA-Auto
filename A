@@ -11,6 +11,11 @@ public class A {
             System.out.println("Была определене недопустимая длина массива, автоматически было переопредена длина массива.");
         }
 
+        B.setRam(15);
+        int num = B.getRam();
+        System.out.println(num);
+
 
     }
 }
+
